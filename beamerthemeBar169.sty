@@ -17,7 +17,7 @@
 
 % sidebar
 % on the right
-\useoutertheme[width=5\baselineskip,right]{sidebar}
+\useoutertheme[width=5\baselineskip,right,hideothersubsections]{sidebar}
 % delete title and author
 % \makeatletter
 \setbeamertemplate{sidebar right}{\insertverticalnavigation{\beamer@sidebarwidth}}
@@ -27,7 +27,7 @@
 \setbeamerfont{subsection in sidebar}{size=\scriptsize}
 % margin
 \setbeamersize{sidebar width right=3cm}
-\setbeamersize{sidebar width left=2cm}
+\setbeamersize{sidebar width left=0.5cm}
 
 
 
@@ -38,23 +38,27 @@
 % \makeatother
 \setbeamertemplate{footline}
 {
-    \leavevmode%
-    \hbox{%
-    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor
     \end{beamercolorbox}
-    
-    \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{13em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
-    \end{beamercolorbox}}
-    
-    \vskip0pt%
+
+    \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}
+
+    \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+    \end{beamercolorbox}
+  }
+
+  \vskip0pt%
 }
 % \makeatletter
 % footline color
-\setbeamercolor{author in head/foot}{fg=black, bg=mygrey!5!white}
-\setbeamercolor{title in head/foot}{fg=black, bg=mygrey!5!white}
+\setbeamercolor{author in head/foot}{fg=black, bg=mygrey!10!white}
+\setbeamercolor{title in head/foot}{fg=black, bg=mygrey!10!white}
 
 % item settings
 \setbeamertemplate{itemize item}{$\color{beamer@simple@color}\bullet$}

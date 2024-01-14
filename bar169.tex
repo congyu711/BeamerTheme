@@ -1,8 +1,28 @@
 \documentclass[aspectratio=169]{beamer}
-    \input{pkgs.tex}
-    \input{global.tex}
-    \usetheme{Bar169}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}        % header footer
+\usepackage{graphicx}        % figure
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{adjustbox}
 
-    \begin{document}
-        \input{content.tex}
-    \end{document}
+\author{Yu Cong}
+\title{Reachability and Büchi games}
+\date{\today}
+
+% \AtBeginSection[]{
+%     \frame{\frametitle{Outline}\tableofcontents[currentsection, 
+%     subsectionstyle=show/show/shaded]}
+% }
+
+\usetheme{Bar169}
+
+\begin{document}
+    \input{content.tex}
+\end{document}

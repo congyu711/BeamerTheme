@@ -1,10 +1,29 @@
 \documentclass{beamer}
-    \input{pkgs.tex}
-    \input{global.tex}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}        % header footer
+\usepackage{graphicx}        % figure
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{adjustbox}
+
+\author{Yu Cong}
+\title{Reachability and Büchi games}
+\date{\today}
+
+% \AtBeginSection[]{
+%     \frame{\frametitle{Outline}\tableofcontents[currentsection, 
+%     subsectionstyle=show/show/shaded]}
+% }
     
-    \usetheme{Simple}
-    \useoutertheme{tree}
+\usetheme{Simple}
+% \useoutertheme{tree}
     
-    \begin{document}
-        \input{content.tex}
-    \end{document}
+\begin{document}
+    \input{content.tex}
+\end{document}
