@@ -24,5 +24,20 @@
 \usetheme{Bar169}
 
 \begin{document}
+    \begingroup
+        \makeatletter
+        \setlength{\hoffset}{.5\beamer@sidebarwidth}
+        \makeatother
+        
+        \begin{frame}[plain]
+            % Print the title page as the first slide
+            \titlepage
+        \end{frame}
+
+        \begin{frame}[plain]{Overview}
+            % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+            \tableofcontents
+        \end{frame}
+    \endgroup
     \input{content.tex}
 \end{document}
