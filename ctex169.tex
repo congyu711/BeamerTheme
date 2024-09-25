@@ -1,0 +1,75 @@
+
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}        % header footer
+\usepackage{graphicx}        % figure
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{adjustbox}
+\usepackage{ctex}
+% \usefonttheme[onlymath]{serif}
+
+\author{丛宇}
+\title{中文标题}
+\date{\today}
+
+% \AtBeginSection[]{
+%     \frame{\frametitle{Outline}\tableofcontents[currentsection,
+%     subsectionstyle=show/show/shaded]}
+% }
+
+\usetheme{Bar169}
+
+\begin{document}
+
+   \begingroup
+
+      \makeatletter
+      \setlength{\hoffset}{.5\beamer@sidebarwidth}
+      \makeatother
+
+
+      \begin{frame}[plain]
+         % Print the title page as the first slide
+         \titlepage
+      \end{frame}
+
+      \begin{frame}[plain]{Overview}
+         % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+         \tableofcontents
+      \end{frame}
+   \endgroup
+\section{Reachability Game}
+\begin{frame}{可达性博弈}
+   中文测试
+\end{frame}
+\section{Reachability Game2}
+\section{Reachability Game3}
+
+\begin{frame}{math test}
+   \begin{itemize}
+      \item How to find $T_1$\\
+
+      $T_1=\{v\in T : v$ can't reach $T\cup Reach(T,0)\}$\\
+      $T_1=\{v\in T: v$ can only reach $V\setminus \{T\cup Reach(T,0)\}\}$\\
+      P1 wants to reach $V\setminus \{T\cup Reach(T,0)\}\}$, P0 tries to avoid $V\setminus \{T\cup Reach(T,0)\}\}$.\\
+      compute $Reach(V\setminus \{T\cup Reach(T,0)\}\},1)$
+
+      \item Time complexity\\
+          $O(m)$ to find $T_i$, at most $O(n)$ times. Worst-case $O(nm)$.
+  \end{itemize}
+
+\end{frame}
+\begin{frame}
+   \frametitle{references}
+
+
+
+\end{frame}
+\end{document}
