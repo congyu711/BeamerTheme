@@ -2,6 +2,44 @@
 %
 % This file may be distributed and/or modified
 % under the LaTeX Project Public License
+\RequirePackage[english]{babel}
+\RequirePackage{fancyhdr}        % header footer
+\RequirePackage{xcolor}
+\RequirePackage{bookmark}
+\RequirePackage{hyperref}[colorlinks=true,urlcolor=Blue,citecolor=Green,linkcolor=BrickRed,unicode]
+\RequirePackage{graphicx} % Allows including images
+\RequirePackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\RequirePackage{tikz}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{tikzmark} % for \tikzmarknode
+\usetikzlibrary{calc} % for computing the midpoint between two nodes, e.g. at ($(p1.north)!0.5!(p2.north)$) 
+\RequirePackage[ruled,linesnumbered]{algorithm2e}
+\RequirePackage{adjustbox}
+\RequirePackage{subcaption}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+
+% a color box
+\RequirePackage[breakable, theorems, skins]{tcolorbox}
+\tcbset{enhanced}
+\DeclareRobustCommand{\mybox}[2][gray!20]{%
+\begin{tcolorbox}[   %% Adjust the following parameters at will.
+        breakable,
+        left=0pt,
+        right=0pt,
+        top=0pt,
+        bottom=0pt,
+        colback=#1,
+        colframe=#1,
+        width=\dimexpr\textwidth\relax, 
+        enlarge left by=0mm,
+        boxsep=5pt,
+        arc=0pt,outer arc=0pt,
+        ]
+        #2
+\end{tcolorbox}
+}
 
 
 \definecolor{beamer@simple@color}{RGB}{12 72 66} % bluegreen
@@ -14,6 +52,7 @@
 \DeclareOptionBeamer{named}{\definecolor{beamer@simple@color}{named}{#1}}
 \DeclareOptionBeamer{hsb}{\definecolor{beamer@simple@color}{hsb}{#1}}
 \ProcessOptionsBeamer
+\definecolor{oliver}{rgb}{0.33, 0.42, 0.18} 
 
 % footline
 % delete navigation below
@@ -101,7 +140,7 @@
 \setbeamercolor{alerted text}{fg=beamer@simple@color}
 \setbeamerfont{block title alerted}{series=\mdseries}
 \setbeamerfont{alerted text}{series=\bfseries\boldmath}
-\hypersetup{colorlinks,linkcolor=,urlcolor=beamer@simple@color!80!white}
+\hypersetup{colorlinks,linkcolor=,urlcolor=oliver}
 \usefonttheme[onlymath]{serif}
 \setbeamerfont{frametitle}{series=\bfseries\boldmath}
 \setbeamerfont{block title}{series=\bfseries\boldmath}
@@ -122,6 +161,110 @@
 \setbeamercolor{block title}{bg=mygrey!25!white}
 \setbeamercolor{block body}{fg=black,bg=mygrey!13!white}
 
+% more theorem env
+\newtheorem{observation}{Observation}
+\newtheorem{question}{Question}
 
 
+% ----------------------------------------------------------------------
+%  Simple math stuff
+% ----------------------------------------------------------------------
+\renewcommand{\subset}{\subseteq}
+% ---- SYMBOLS ----
+\let\e\varepsilon               % a ``real'' epsilon — better yet, just use Unicode ε.
+%
+%  I give up.  These are in the wrong font, but my kludged versions 
+%  LOOK like kludges, especially \Z, \Q, and \C.
+%
+\def\Real{\mathbb{R}}
+\def\Proj{\mathbb{P}}
+\def\Hyper{\mathbb{H}}
+\def\Integer{\mathbb{Z}}
+\def\Natural{\mathbb{N}}
+\def\Complex{\mathbb{C}}
+\def\Rational{\mathbb{Q}}
+
+\let\N\Natural
+\let\Q\Rational
+\let\R\Real
+\let\Z\Integer
+\def\Rd{\Real^d}
+\def\RP{\Real\Proj}
+\def\CP{\Complex\Proj}
+
+
+
+% ---- OPERATORS (requires amsmath) ----
+\def\aff{\operatorname{aff}}        
+\def\area{\operatorname{area}}
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\def\Aut{\operatorname{Aut}}        % Automorphism group
+\def\card{\operatorname{card}}  % cardinality, deprecated for \abs
+\def\conv{\operatorname{conv}}  
+\def\E{\operatorname{E}}            % Expectation: $\E[X]$ (like \Pr)
+\def\EE{\operatornamewithlimits{E}}
+\def\Hom{\operatorname{Hom}}        % Homomorphism group
+\def\id{\operatorname{id}}      % identity
+\def\im{\operatorname{im}}      % image
+\def\lcm{\operatorname{lcm}}
+\def\lfs{\operatorname{lfs}}        % local feature size
+\def\poly{\operatorname{poly}}
+\def\polylog{\operatorname{polylog}}
+\def\rank{\operatorname{rank}}
+\def\rel{\operatorname{rel\,}}  % relative (interior, boundary, etc.)
+\def\sgn{\operatorname{sgn}}
+\def\vol{\operatorname{vol}}        % volume
+
+\def\fp#1{^{\underline{#1}}}        % falling powers: $n\fp{d}$
+\def\rp#1{^{\overline{#1}}}     % rising powers:  $n\rp{d}$
+
+\def\setsymdiff{\operatorname{\triangle}}
+% % --- Darts and fences ---
+% % less nice replacements for stmaryrd characters
+% \@ifundefined{shortrightarrow}{\let\shortrightarrow\rightarrow}{}
+% \@ifundefined{shortleftarrow}{\let\shortleftarrow\leftarrow}{}
+% \@ifundefined{shortuparrow}{\let\shortuparrow\uparrow}{}
+% \@ifundefined{shortdownarrow}{\let\shortdownarrow\downarrow}{}
+
+\def\arcto{\mathord\shortrightarrow}
+\def\arcfrom{\mathord\shortleftarrow}
+\def\arc#1#2{#1\arcto#2}
+\def\cra#1#2{#1\mathord\shortleftarrow#2}
+\def\fence#1#2{#1\mathord\shortuparrow#2}
+\def\ecnef#1#2{#1\mathord\shortdownarrow#2}
+
+% --- Cheap displaystyle operators ---
+\def\Frac#1#2{{\displaystyle\frac{#1}{#2}}}
+\def\Sum{\sum\limits}
+\def\Prod{\prod\limits}
+\def\Union{\bigcup\limits}
+\def\Inter{\bigcap\limits}
+\def\Lor{\bigvee\limits}
+\def\Land{\bigwedge\limits}
+\def\Lim{\lim\limits}
+\def\Max{\max\limits}
+\def\Min{\min\limits}
+
+% ---- RELATORS ----
+\def\deq{\stackrel{\scriptscriptstyle\triangle}{=}} % Use := instead.
+\def\into{\DOTSB\hookrightarrow}        % = one-to-one
+\def\onto{\DOTSB\twoheadrightarrow}
+\def\inonto{\DOTSB\lhook\joinrel\twoheadrightarrow}
+\def\from{\leftarrow}
+\def\tofrom{\leftrightarrow}
+\def\mapsfrom{\mathrel{\reflectbox{$\mapsto$}}}
+\def\longmapsfrom{\mathrel{\reflectbox{$\longmapsto$}}}
+
+% ---- DELIMITER PAIRS ----
+% --- always self-scaling delmiter pairs ---
+\def\set#1{\left\{ #1 \right\}}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+\def\ceil#1{\left\lceil #1 \right\rceil}
+\def\seq#1{\left\langle #1 \right\rangle}
+\def\abs#1{\left| #1 \right|}
+\def\norm#1{\left\| #1 \right\|}
+\def\paren#1{\left( #1 \right)}     % need better macro name!
+\def\brack#1{\left[ #1 \right]}     % need better macro name!
+\def\indic#1{\left[ #1 \right]}     % indicator variable; Iverson notation
 

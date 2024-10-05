@@ -1,16 +1,4 @@
 \documentclass{beamer}
-\usepackage[english]{babel}
-\usepackage{fancyhdr}        % header footer
-\usepackage{graphicx}        % figure
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{bookmark}
-\usepackage{hyperref}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage{tikz}
-\usepackage[ruled,linesnumbered]{algorithm2e}
-\usepackage{adjustbox}
 
 \author{Yu Cong}
 \title{Reachability and Büchi games}
@@ -23,6 +11,7 @@
     
 \usetheme{Simple}
 % \useoutertheme{tree}
+\DeclareMathOperator{\Reach}{Reach}
     
 \begin{document}
     \begin{frame}[plain]
@@ -34,5 +23,5 @@
         % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
         \tableofcontents
     \end{frame}
-    \input{content.tex}
+    \input{Büchi Game-content.tex}
 \end{document}
