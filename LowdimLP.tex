@@ -19,7 +19,6 @@
 \end{frame}
 
 \begin{frame}[plain]{Plan}
-    \mybox[oliver!10]{\scriptsize The order of the slides is basically the order in which I think about this problem.}
     \tableofcontents
 \end{frame}
 
@@ -33,13 +32,13 @@
     \begin{subfigure}{.5\textwidth}
       \centering
       \includegraphics[width=.4\linewidth]{images/Piecewise_linear_function.svg.png}
-      \caption{A 1D piecewise linear function with 4 line segments and 3 breakpoints}
+      \caption{A 1D pwl function with 4 line segments and 3 breakpoints}
       \label{fig:sub1}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
       \centering
       \includegraphics[width=.4\linewidth]{images/Piecewise_linear_function2D.png}
-      \caption{A 2D piecewise concave function}
+      \caption{A 2D pwl concave function}
       \label{fig:sub2}
     \end{subfigure}
     % \caption{A figure with two subfigures}
@@ -93,9 +92,11 @@ However, observe that in our problem the piecewise linear convex function is not
 \end{frame}
 
 \section{LP in Low Dimensions}
-\begin{frame}[allowframebreaks]{Megiddo's algorithm}
-    {\tiny \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}}
-
+\begin{frame}[allowframebreaks]{Megiddo's algorithm}%
+    \mybox[oliver!20]{
+        \tiny
+        \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}
+    }
     The dimension $d$ (in our problem, the dimension of $x$) is small while the number of constraints are huge. We need only $d$ linearly independent tight constraints to identify the optimal solution $x^*$.
     Thus most of the constraints are useless.
     \BlankLine
@@ -167,13 +168,14 @@ However, observe that in our problem the piecewise linear convex function is not
     with solution $T(n,d)=O(2^{2^d}n)$.
 \end{frame}
 \begin{frame}{Zemel's conversion}
-    Our linear program has \emph{dimension} $n+d$. \href{https://www.sciencedirect.com/science/article/abs/pii/0020019084900140}{Zemel} showed that this kind of problem can be converted to a linear program of dimension $d$.
     \begin{align*}
         \min &\sum_{i=1}^n f_i\\
         s.t. \quad f_i&\geq \alpha_j(a_i\cdot x -b_i)-\beta_j \quad \forall i\in[n], \forall j\\
     \end{align*}
+    Our linear program has \emph{dimension} $n+d$. 
+    \textbf{\href{https://www.sciencedirect.com/science/article/abs/pii/0020019084900140}{Zemel}} showed that this kind of problem can be solved in linear time.
     \mybox[oliver!20]{
-        \scriptsize Here is an intuitive way to understand the conversion. One can think the LP above as a $d$-dimensional search problem with $n+d$ hyperplanes. However, the oracle is quite different. The oracle takes the unknown $x^*$ and a hyperplane $H$ as input, returns the relative position by computing the minimal $f_i$.
+        This is a \emph{$d$-dimensional search problem} with $n+d$ hyperplanes.
     }
 \end{frame}
 
@@ -205,15 +207,32 @@ However, observe that in our problem the piecewise linear convex function is not
 
     If a LP problem has low dimension, then its combinatorial dimension is low. \textbf{What about the converse?}
     \newpage
+    \begin{align*}
+        \min &\sum_{i=1}^n f_i\\
+        s.t. \quad f_i&\geq \alpha_j(a_i\cdot x -b_i)-\beta_j \quad \forall i\in[n], \forall j\\
+        &\cdots
+    \end{align*}%
     \textbf{Does our LP has low combinatorial dimension?}
     
-    No! A basis contains at least $n$ constraints since otherwise some $f_i$ is unbounded.
+    No. A basis contains at least $n$ constraints since otherwise some $f_i$ is unbounded.
+
+    \begin{problem}
+        Is it possible to formulate the pwl convex minimization problem as an LP-type problem with low combinatorial dimension?
+    \end{problem}
 \end{frame}
 
 
 
 \begin{frame}{Aggregate the pwl convex functions}
     % blog posts
+    The sum of pwl convex functions are still pwl convex. 
+    \newline If we can compute $F=\sum f_i$ in $O(m)$ and the number of line segments on $F$ is also $O(m)$, then the corresponding LP will have low combinatorial dimension.
+    \begin{align*}
+        \min \quad F\\
+        s.t. \quad F&\geq \alpha_j\cdot x -\beta_j \quad \forall j\\
+        &\cdots
+    \end{align*}
+    However, this is not possible for general pwl convex functions in $\R^d$.\footnote{see this \href{https://talldoor.uk/posts/2024-09-16-piecewise-linear.html}{blog post} for detail.}
 \end{frame}
 
 \end{document}
