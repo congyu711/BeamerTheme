@@ -1,0 +1,14 @@
+\def\begin@lg{\begin{minipage}{1in}\begin{tabbing}
+        \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\def\end@lg{\end{tabbing}\end{minipage}}
+
+\newenvironment{algorithm}
+{\begin{tabular}{|l|}\hline\begin@lg}
+{\end@lg\\\hline\end{tabular}}
+
+\newenvironment{algo}
+{\begin{center}\begin{algorithm}}
+{\end{algorithm}\end{center}}
+
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
