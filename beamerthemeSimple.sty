@@ -9,16 +9,29 @@
 \RequirePackage{hyperref}[colorlinks=true,urlcolor=Blue,citecolor=Green,linkcolor=BrickRed,unicode]
 \RequirePackage{graphicx} % Allows including images
 \RequirePackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\RequirePackage{tikz}
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{arrows,shapes}
-\usetikzlibrary{tikzmark} % for \tikzmarknode
-\usetikzlibrary{calc} % for computing the midpoint between two nodes, e.g. at ($(p1.north)!0.5!(p2.north)$) 
-\RequirePackage[ruled,linesnumbered]{algorithm2e}
-\RequirePackage{adjustbox}
+% \RequirePackage{tikz}
+% \usetikzlibrary{backgrounds}
+% \usetikzlibrary{arrows,shapes}
+% \usetikzlibrary{tikzmark} % for \tikzmarknode
+% \usetikzlibrary{calc} % for computing the midpoint between two nodes, e.g. at ($(p1.north)!0.5!(p2.north)$) 
+% \RequirePackage[ruled,linesnumbered]{algorithm2e}
+% \RequirePackage{adjustbox}
 \RequirePackage{subcaption}
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
+
+% copied from one of UIUC courses by Chandra Chekuri. I can't find the exact link now...https://courses.grainger.illinois.edu/cs598cci/sp2020/
+\def\begin@lg{\begin{minipage}{1in}\begin{tabbing}
+  \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\def\end@lg{\end{tabbing}\end{minipage}}
+
+\newenvironment{algorithm}
+{\begin{tabular}{|l|}\hline\begin@lg}
+{\end@lg\\\hline\end{tabular}}
+
+\newenvironment{algo}
+{\begin{center}\begin{algorithm}}
+{\end{algorithm}\end{center}}
 
 % a color box
 \RequirePackage[breakable, theorems, skins]{tcolorbox}
