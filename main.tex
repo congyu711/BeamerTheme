@@ -1,7 +1,7 @@
 \documentclass{beamer}
 
 \author{Yu Cong}
-\title[Minimizing sum of pwl convex function]{Minimizing the Sum of Piecewise Linear Convex Functions}
+\title[template example]{Minimizing the Sum of Piecewise Linear Convex Functions}
 \date{\today}
 
 % \AtBeginSection[]{
@@ -10,6 +10,7 @@
 % }
     
 \usetheme{Simple}
+\usepackage{algo}
 % \useoutertheme{tree}
     
 \begin{document}
@@ -234,13 +235,23 @@ However, observe that in our problem the piecewise linear convex function is not
     \end{align*}
     However, this is not possible for general pwl convex functions in $\R^d$.\footnote{see this \href{https://talldoor.uk/posts/2024-09-16-piecewise-linear.html}{blog post} for detail.}
 \end{frame}
-\begin{frame}{test algo}
-    \begin{algo}
-    $s\gets 1$\\
-    asdf\\
-    sdddddddddddddddddddddddddddddddd\\
-    \textbf{Return} $\textsc{CallOracle}$
-    \end{algo}
+\begin{frame}{pseudocode}
+    \begin{figure}[h!]
+        \begin{algo}
+            sort vertices in $G$ in such that $\deg(v_1)\geq \dots \geq \deg(v_n)$\\
+            for $i\in[n]$:\\ 
+            \quad for each vertex $u\in N(v_i)$:\\
+            \quad \quad let $U[v]=\emptyset$ for all $v$.\\
+            \quad \quad for each vertex $w\in N(u)$ that is not $v_i$:\\
+            \quad \quad \quad add $u$ to $U[w]$.\\
+            \quad for all vertex $w\in V$ that is not $v_i$:\\
+            \quad \quad if $|U[w]|\geq \ell$:\\ \quad 
+            \quad \quad \textbf{output} tuple $(v_i,w,U[w])$\\
+            \quad $G=G-v_i$
+        \end{algo}
+        \caption{An $O(m\alpha(G))$ algorithm for finding all colored $K_{2,\ell'}$ for $\ell' \geq \ell$}
+        \label{figalg:malpha}
+    \end{figure}
 \end{frame}
 
 \end{document}
