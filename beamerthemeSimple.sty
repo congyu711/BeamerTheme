@@ -20,9 +20,9 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage[utf8]{inputenc}
-\usepackage{CJKutf8}
+\RequirePackage{CJKutf8}
 \def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
-
+\RequirePackage{aliascnt}
 % copied from one of UIUC courses by Chandra Chekuri. I can't find the exact link now...https://courses.grainger.illinois.edu/cs598cci/sp2020/
 \def\begin@lg{\begin{minipage}{1in}\begin{tabbing}
   \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
@@ -75,25 +75,25 @@
 \setbeamertemplate{navigation symbols}{}
 % define footline
 % \makeatother
-\setbeamertemplate{footline}
-{
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-        \usebeamerfont{author in head/foot}\insertshortauthor
-    \end{beamercolorbox}
+% \setbeamertemplate{footline}
+% {
+%   \leavevmode%
+%   \hbox{%
+%     \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%         \usebeamerfont{author in head/foot}\insertshortauthor
+%     \end{beamercolorbox}
 
-    \begin{beamercolorbox}[wd=.62\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-        \usebeamerfont{title in head/foot}\insertshorttitle
-    \end{beamercolorbox}
+%     \begin{beamercolorbox}[wd=.62\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%         \usebeamerfont{title in head/foot}\insertshorttitle
+%     \end{beamercolorbox}
 
-    % \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    %     \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
-    % \end{beamercolorbox}
-  }
+%     % \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%     %     \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+%     % \end{beamercolorbox}
+%   }
 
-  \vskip0pt%
-}
+%   \vskip0pt%
+% }
 \useoutertheme{tree}
 \makeatletter
 \setbeamertemplate{headline}
@@ -124,7 +124,7 @@
       \else%  
         \hskip12pt%
       \fi%
-      \insertsubsectionhead\hfill\insertframenumber/\inserttotalframenumber\hspace{0.5em}
+      \insertsubsectionhead\hfill\insertshortauthor\hskip12pt\insertframenumber/\inserttotalframenumber\hspace{0.5em}
     \end{beamercolorbox}
     \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{lower separation line head}
     \end{beamercolorbox}
@@ -174,8 +174,8 @@
 % \setbeamercolor{block title alerted}{fg=alertcol,bg=white}
 % \setbeamerfont{alerted text}{series=\mdseries}
 % \setbeamercolor{alerted text}{fg=alertcol}
-\setbeamercolor{block title}{bg=mygrey!25!white}
-\setbeamercolor{block body}{fg=black,bg=mygrey!13!white}
+\setbeamercolor{block title}{bg=mygrey!15!white}
+\setbeamercolor{block body}{fg=black,bg=mygrey!5!white}
 
 % more theorem env
 \newtheorem{observation}{Observation}
@@ -283,4 +283,3 @@
 \def\paren#1{\left( #1 \right)}     % need better macro name!
 \def\brack#1{\left[ #1 \right]}     % need better macro name!
 \def\indic#1{\left[ #1 \right]}     % indicator variable; Iverson notation
-
