@@ -149,19 +149,19 @@
 
 \setbeamercolor{structure}{fg=beamer@simple@color, bg=mygrey!10!white}
 \setbeamercolor{frametitle}{fg=beamer@simple@color, bg=white}
-\setbeamercolor{block title}{bg=mygrey!14!white}
-\setbeamercolor{block body}{fg=black,bg=mygrey!10!white}
+\setbeamercolor{block title}{fg=beamer@simple@color,bg=white}
+\setbeamercolor{block body}{fg=black,bg=white}
 \setbeamercolor{block body alerted}{bg=white}
 \setbeamercolor{block title alerted}{fg=beamer@simple@color,bg=white}
 \setbeamercolor{alerted text}{fg=beamer@simple@color}
 \setbeamerfont{block title alerted}{series=\mdseries}
 \setbeamerfont{alerted text}{series=\bfseries\boldmath}
 \hypersetup{colorlinks,linkcolor=,urlcolor=oliver}
-\usefonttheme[onlymath]{serif}
+% \usefonttheme[onlymath]{serif}
 \setbeamerfont{frametitle}{series=\bfseries\boldmath}
 \setbeamerfont{block title}{series=\bfseries\boldmath}
 \setbeamerfont{title}{series=\bfseries\boldmath}
-\setbeamertemplate{frametitle}{\insertframetitle\par\vskip-8pt\hrulefill} % add line under frametitle
+\setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underline{\insertframetitle}} % add line under frametitle
 
 % % metropolis
 % % \definecolor{beamer@simple@color}{RGB}{35 54 58}
@@ -174,9 +174,19 @@
 % \setbeamercolor{block title alerted}{fg=alertcol,bg=white}
 % \setbeamerfont{alerted text}{series=\mdseries}
 % \setbeamercolor{alerted text}{fg=alertcol}
-\setbeamercolor{block title}{bg=mygrey!15!white}
-\setbeamercolor{block body}{fg=black,bg=mygrey!5!white}
+% \setbeamercolor{block title}{bg=mygrey!15!white}
+% \setbeamercolor{block body}{fg=black,bg=mygrey!5!white}
 
+\newtheoremstyle{sfbreak}
+  {\topsep}     % ABOVESPACE
+  {\topsep}     % BELOWSPACE
+  {\normalfont} % BODYFONT
+  {0pt}         % INDENT
+  {\sffamily\scshape\bfseries} % HEADFONT
+  {.}           % HEADPUNCT
+  {\newline}    % AFTER HEAD SPACE
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % HEAD SPEC
+\theoremstyle{sfbreak}
 % more theorem env
 \newtheorem{observation}{Observation}
 \newtheorem{question}{Question}
