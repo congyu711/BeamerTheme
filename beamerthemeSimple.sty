@@ -132,23 +132,33 @@
 \setbeamerfont{title}{series=\bfseries\boldmath}
 \setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underline{\insertframetitle}} % add line under frametitle
 
-
-\makeatletter
-\setbeamertemplate{theorem begin}
-{%
-\begin{\inserttheoremblockenv}
-  {}{ % does not work without specifying the CambridgeUS theme
+% theorem env
+\setbeamertemplate{theorem begin}{%
+{
+  \vspace{5pt}
   \usebeamerfont*{block title}%
   \selectfont
   \usebeamercolor[fg]{block title}%
+  \textbf{
   \inserttheoremname
   \inserttheoremnumber
   \ifx \inserttheoremaddition \empty \else\ [\inserttheoremaddition]\fi
-  \inserttheorempunctuation}
-  \selectfont
-   }
-  \setbeamertemplate{theorem end}{\end{\inserttheoremblockenv}}
-\makeatother
+  \inserttheorempunctuation
+  }
+}
+}
+\setbeamertemplate{theorem end}{\vspace{5pt}}
+% proof env
+\setbeamertemplate{proof begin}{%
+{\vspace{5pt}
+\usebeamercolor[fg]{block title}
+\textit{Proof.}}
+}
+\setbeamertemplate{proof end}{
+\qedhere
+\vspace{5pt}
+}
+
 % more theorem env
 \newtheorem{observation}{Observation}
 \newtheorem{question}{Question}
