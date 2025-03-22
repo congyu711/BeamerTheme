@@ -3,7 +3,7 @@
 % This file may be distributed and/or modified
 % under the LaTeX Project Public License
 \usepackage{libertine}
-\RequirePackage[english]{babel}
+\RequirePackage[chinese, provide=*]{babel}
 \RequirePackage{fancyhdr}        % header footer
 \RequirePackage{xcolor}
 \RequirePackage{bookmark}
@@ -20,10 +20,32 @@
 \RequirePackage{subcaption}
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{CJKutf8}
-\def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
-\RequirePackage{aliascnt}
+% \RequirePackage[utf8]{inputenc}
+% \RequirePackage{CJKutf8}
+% \def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+% \RequirePackage{aliascnt}
+\RequirePackage{ctex}
+\RequirePackage{fontspec}
+\RequirePackage{xeCJK}
+% infact italic and BoldItalic fonts are missing
+\setCJKmainfont{LXGWNeoZhiSong}[
+  Path=./fonts/,
+  Extension = .ttf,
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setCJKsansfont{LXGWWenKai}[
+  Path=./fonts/,
+  Extension = .ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Regular,
+  BoldItalicFont=*-Regular,
+]
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
 
 % a color box
 \RequirePackage[breakable, theorems, skins]{tcolorbox}
