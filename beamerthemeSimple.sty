@@ -135,15 +135,14 @@
 % theorem env
 \setbeamertemplate{theorem begin}{%
 {
-  \vspace{5pt}
+  \vspace{5pt}%
   \usebeamerfont*{block title}%
-  \selectfont
+  \selectfont%
   \usebeamercolor[fg]{block title}%
-  \textbf{
+  \textbf{%
   \inserttheoremname
-  % \inserttheoremnumber
+  \inserttheoremnumber
   \ifx \inserttheoremaddition \empty \else\ [\inserttheoremaddition]\fi
-  \inserttheorempunctuation
   }
 }
 }
@@ -152,7 +151,7 @@
 \setbeamertemplate{proof begin}{%
 {\vspace{5pt}
 \usebeamercolor[fg]{block title}
-\textit{Proof.}}
+\textit{\textbf{Proof:}}}
 }
 \setbeamertemplate{proof end}{
 \qedhere
