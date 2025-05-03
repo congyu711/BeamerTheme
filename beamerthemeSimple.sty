@@ -2,8 +2,11 @@
 % !TEX TS-program = xelatex
 % fonts
 \RequirePackage[sfdefault]{FiraSans}
-\RequirePackage[mathrm=sym]{unicode-math}
-\setmathfont{Fira Math}
+\RequirePackage{FiraMono} 
+\renewcommand{\rmfamily}{\sffamily}
+\RequirePackage[fakebold]{firamath-otf}
+\RequirePackage{xeCJK}
+\setCJKmainfont{Source Han Sans SC}
 
 \RequirePackage[english]{babel}
 \RequirePackage{fancyhdr}        % header footer
