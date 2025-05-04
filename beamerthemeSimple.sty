@@ -1,12 +1,15 @@
 % !TEX program = xelatex
 % !TEX TS-program = xelatex
 % fonts
-\RequirePackage[sfdefault]{FiraSans}
+% \usefonttheme{professionalfonts}
+% \RequirePackage[sfdefault]{FiraSans}
 \RequirePackage{FiraMono} 
 \renewcommand{\rmfamily}{\sffamily}
 % \RequirePackage[fakebold]{firamath-otf}
-\usepackage[mathrm=sym]{unicode-math}
-\setmathfont{Fira Math}
+\RequirePackage{unicode-math}
+\unimathsetup{math-style=ISO, bold-style=ISO, mathrm=sym}
+\setsansfont{FiraGO}[BoldFont=* SemiBold, Numbers=Monospaced]
+\setmathfont{Fira Math}[BoldFont=*-SemiBold]
 \RequirePackage{xeCJK}
 \setCJKmainfont{Source Han Sans SC}
 
@@ -138,7 +141,7 @@
 \setbeamerfont{frametitle}{series=\bfseries\boldmath}
 \setbeamerfont{block title}{series=\bfseries\boldmath}
 \setbeamerfont{title}{series=\bfseries\boldmath}
-\setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underline{\insertframetitle}} % add line under frametitle
+\setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underbar{\insertframetitle}} % add line under frametitle
 
 % theorem env
 \setbeamertemplate{theorem begin}{%
@@ -167,8 +170,9 @@
 }
 
 % more theorem env
-\newtheorem{observation}{Observation}
-\newtheorem{question}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{question}[theorem]{Question}
 
 
 % ----------------------------------------------------------------------
