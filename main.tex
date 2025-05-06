@@ -1,8 +1,8 @@
 \documentclass{beamer}
 
-\title[template example]{Minimizing the Sum of Piecewise Linear Convex Functions}
+\title[template example]{Title}
 \date{\today}
-\author{\texorpdfstring{\zh{丛宇}}{Yu Cong}}
+\author{丛宇}
 % \AtBeginSection[]{
 %     \frame{\frametitle{Outline}\tableofcontents[currentsection, 
 %     subsectionstyle=show/show/shaded]}
@@ -23,6 +23,7 @@
 
 \section{Problems \& Definitions}
 \begin{frame}{$\min \sum f_i(a_i\cdot x-b_i)$}
+    $A\setminus B$ 测试中文:
 \begin{problem}
     Given $n$ piecewise linear convex functions $f_1,...,f_n:\R \to \R$ of total $m$ breakpoints, and $n$ linear functions $a_i\cdot x-b_i:\R^d\to \R$, find $\min_x \sum_i f_i(a_i\cdot x-b_i)$.
 \end{problem}
@@ -78,7 +79,7 @@ However, observe that in our problem the piecewise linear convex function is not
     Let $n_i$ be the number of line segments in $f_i$. Note that $\sum_i n_i=m+n$.
 
     We can formulate the optimization problem as the following linear program,
-    \newpage
+    \framebreak
 
     \begin{align*}
         \min &\sum_{i=1}^n f_i\\
@@ -92,10 +93,8 @@ However, observe that in our problem the piecewise linear convex function is not
 
 \section{LP in Low Dimensions}
 \begin{frame}[allowframebreaks]{Megiddo's algorithm}%
-    \boxfill{
-        \tiny
-        \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}
-    }
+    \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}
+
     The dimension $d$ (in our problem, the dimension of $x$) is small while the number of constraints are huge. We need only $d$ linearly independent tight constraints to identify the optimal solution $x^*$.
     Thus most of the constraints are useless.
 
@@ -106,7 +105,7 @@ However, observe that in our problem the piecewise linear convex function is not
     Through inquiries. Let $a\cdot x \leq b$ be the constraint. Define 3 hyperplanes, $a\cdot x = c$ where $c\in \set{b,b-\e,b+\e}$. Now solve three $d-1$ dimension linear programming. The largest of the three objective functions tells us where $x^*$ lies with respect to the
     hyperplane.
 
-    \newpage
+    \framebreak
     Finding the optimal solution $x^*$ is therefore equivalent to the following problem,
     \begin{problem}[Multidimensional Search Problem]
         Suppose that there exists a point $x^*$ which is not known to us, but there is a oracle that can tell the position of $x^*$ relative to any hyperplane in $\R^d$. Given $n$ hyperplanes, we want to know the position of $x^*$ relative to each of them.
@@ -114,7 +113,7 @@ However, observe that in our problem the piecewise linear convex function is not
 
     \textbf{What about 1 dimension search?} A fastest way will be using the linear time median algorithm. We can find the median of $n$ numbers and call the oracle to compare the median with $x^*$. Thus with $O(n)$ time median finding and one oracle call, we find the relative position of $n/2$ elements relative to $x^*$.
 
-    \newpage
+    \framebreak
 
     If we can do similar things in $\R^d$, i.e., there is a method which makes $A(d)$ oracle calls and determines at least $B(d)$ fraction of relative positions, then we can apply this method $\log_{\frac{1}{1-B(d)}} n$ times to find all relative positions.
 
@@ -124,7 +123,7 @@ However, observe that in our problem the piecewise linear convex function is not
     \[T(n,d)=n(3T(n-1,d-1)+O(nd))\] 
     Note that in this setting $A(d)=1$ and $B(d)=1/n$.
 
-    \newpage
+    \framebreak
     Megiddo designed a clever method where $A(d)=2^{d-1}$ and $B(d)=2^{-(2^d-1)}$.
 
     \begin{lemma}
@@ -133,7 +132,7 @@ However, observe that in our problem the piecewise linear convex function is not
         \end{figure}
         Given two lines through the origin with slopes of opposite sign, knowing which quadrant $x^*$ lies in allows us to locate it with respect to at least one of the lines.
     \end{lemma}
-    \newpage
+    \framebreak
     Let $l_H$ be the intersection of hyperplane $H$ and $x_1x_2$ plane.
     Compute a partition $S_1\sqcup S_2=\mathcal H$. 
     $H\in S_1$ iff $l_H$ has positive slope. Otherwise $l_H\in S_2$. We further assume that $|S_1|=|S_2|=n/2$.
@@ -148,12 +147,8 @@ However, observe that in our problem the piecewise linear convex function is not
         Now we have $n/2$ pairs $(H_1,H_2)$, where $H_i\in S_i$. Let $l_i$ be the intersection of $H_i$ and $x_1x_2$ plane.
         Let $H_{x_i}$ be the linear combination of $H_1$ and $H_2$ s.t. $x_i$ is eliminated.
     \end{minipage}
-
-    { 
-    % Now we have $n/2$ pairs $(H_1,H_2)$, where $H_i\in S_i$. Let $l_i$ be the intersection of $H_i$ and $x_1x_2$ plane.
-    % Let $H_{x_i}$ be the linear combination of $H_1$ and $H_2$ s.t. $x_i$ is eliminated.
-    By the previous lemma, calling oracle on $l_{x_1}$ and $l_{x_2}$ locate $x^*$ with respect to at least one of $H_1$ and $H_2$.}
-    \newpage
+    By the previous lemma, calling oracle on $l_{x_1}$ and $l_{x_2}$ locate $x^*$ with respect to at least one of $H_1$ and $H_2$.
+    \framebreak
     Input: $S_1,S_2$ and the pairs.
     \begin{enumerate}
         \item recursively locate $x^*$ respect to $B(d-1)n/2$ hyperplanes($H_{x_i}$) with $A(d-1)$ oracle calls in $S_1$.

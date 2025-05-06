@@ -1,13 +1,32 @@
-% Copyright 2018 by Zhibo Wang
-%
-% This file may be distributed and/or modified
-% under the LaTeX Project Public License
-\usepackage{libertine}
+% !TEX program = xelatex
+% !TEX TS-program = xelatex
+% fonts
+\RequirePackage{fontspec}
+% \usefonttheme{professionalfonts}
+% \RequirePackage[sfdefault]{FiraSans}
+\RequirePackage{FiraMono} 
+\renewcommand{\rmfamily}{\sffamily}
+% \RequirePackage[fakebold]{firamath-otf}
+\RequirePackage{unicode-math}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{inputenc}
+\unimathsetup{math-style=ISO, bold-style=ISO, mathrm=sym}
+\setsansfont{FiraGO}[BoldFont=* SemiBold, Numbers=Monospaced]
+\setmathfont{Fira Math}[BoldFont=*-SemiBold]
+% \setmathfont[range=bb]{XITS Math Bold}
+\RequirePackage{xeCJK}
+\setCJKmainfont{Source Han Sans SC}
+\setCJKsansfont{Source Han Sans SC}
+\setCJKmonofont{Source Han Sans SC}
+
 \RequirePackage[english]{babel}
 \RequirePackage{fancyhdr}        % header footer
-\RequirePackage{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{bookmark}
 \RequirePackage{hyperref}[colorlinks=true,urlcolor=Blue,citecolor=Green,linkcolor=BrickRed,unicode]
+\RequirePackage{natbib}
 \RequirePackage{graphicx} % Allows including images
 \RequirePackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 % \RequirePackage{tikz}
@@ -18,11 +37,8 @@
 % \RequirePackage[ruled,linesnumbered]{algorithm2e}
 % \RequirePackage{adjustbox}
 \RequirePackage{subcaption}
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{CJKutf8}
-\def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+% \RequirePackage{CJKutf8}
+% \def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
 \RequirePackage{aliascnt}
 
 % a color box
@@ -125,25 +141,24 @@
 \setbeamercolor{alerted text}{fg=beamer@simple@color}
 \setbeamerfont{block title alerted}{series=\mdseries}
 \setbeamerfont{alerted text}{series=\bfseries\boldmath}
-\hypersetup{colorlinks,linkcolor=,urlcolor=oliver}
+\hypersetup{colorlinks=true,linkcolor=,citecolor=Green,urlcolor=oliver}
 % \usefonttheme[onlymath]{serif}
 \setbeamerfont{frametitle}{series=\bfseries\boldmath}
 \setbeamerfont{block title}{series=\bfseries\boldmath}
 \setbeamerfont{title}{series=\bfseries\boldmath}
-\setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underline{\insertframetitle}} % add line under frametitle
+\setbeamertemplate{frametitle}{\vskip2pt\hskip-6pt\underbar{\insertframetitle}} % add line under frametitle
 
 % theorem env
 \setbeamertemplate{theorem begin}{%
 {
-  \vspace{5pt}
+  \vspace{5pt}%
   \usebeamerfont*{block title}%
-  \selectfont
+  \selectfont%
   \usebeamercolor[fg]{block title}%
-  \textbf{
+  \textbf{%
   \inserttheoremname
-  % \inserttheoremnumber
+  \inserttheoremnumber
   \ifx \inserttheoremaddition \empty \else\ [\inserttheoremaddition]\fi
-  \inserttheorempunctuation
   }
 }
 }
@@ -152,7 +167,7 @@
 \setbeamertemplate{proof begin}{%
 {\vspace{5pt}
 \usebeamercolor[fg]{block title}
-\textit{Proof.}}
+\textit{\textbf{Proof:}}}
 }
 \setbeamertemplate{proof end}{
 \qedhere
@@ -160,8 +175,9 @@
 }
 
 % more theorem env
-\newtheorem{observation}{Observation}
-\newtheorem{question}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{question}[theorem]{Question}
 
 
 % ----------------------------------------------------------------------
@@ -174,13 +190,13 @@
 %  I give up.  These are in the wrong font, but my kludged versions 
 %  LOOK like kludges, especially \Z, \Q, and \C.
 %
-\def\Real{\mathbb{R}}
-\def\Proj{\mathbb{P}}
-\def\Hyper{\mathbb{H}}
-\def\Integer{\mathbb{Z}}
-\def\Natural{\mathbb{N}}
-\def\Complex{\mathbb{C}}
-\def\Rational{\mathbb{Q}}
+\def\Real{ℝ}
+\def\Proj{ℙ}
+\def\Hyper{ℍ}
+\def\Integer{ℤ}
+\def\Natural{ℕ}
+\def\Complex{ℂ}
+\def\Rational{ℚ}
 
 \let\N\Natural
 \let\Q\Rational
