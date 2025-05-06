@@ -1,15 +1,21 @@
 % !TEX program = xelatex
 % !TEX TS-program = xelatex
 % fonts
+\RequirePackage{fontspec}
 % \usefonttheme{professionalfonts}
 % \RequirePackage[sfdefault]{FiraSans}
 \RequirePackage{FiraMono} 
 \renewcommand{\rmfamily}{\sffamily}
 % \RequirePackage[fakebold]{firamath-otf}
 \RequirePackage{unicode-math}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{inputenc}
 \unimathsetup{math-style=ISO, bold-style=ISO, mathrm=sym}
 \setsansfont{FiraGO}[BoldFont=* SemiBold, Numbers=Monospaced]
 \setmathfont{Fira Math}[BoldFont=*-SemiBold]
+% \setmathfont[range=bb]{XITS Math Bold}
 \RequirePackage{xeCJK}
 \setCJKmainfont{Source Han Sans SC}
 \setCJKsansfont{Source Han Sans SC}
@@ -31,9 +37,6 @@
 % \RequirePackage[ruled,linesnumbered]{algorithm2e}
 % \RequirePackage{adjustbox}
 \RequirePackage{subcaption}
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-% \RequirePackage[utf8]{inputenc}
 % \RequirePackage{CJKutf8}
 % \def\zh#1{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
 \RequirePackage{aliascnt}
@@ -187,13 +190,13 @@
 %  I give up.  These are in the wrong font, but my kludged versions 
 %  LOOK like kludges, especially \Z, \Q, and \C.
 %
-\def\Real{\mathbb{R}}
-\def\Proj{\mathbb{P}}
-\def\Hyper{\mathbb{H}}
-\def\Integer{\mathbb{Z}}
-\def\Natural{\mathbb{N}}
-\def\Complex{\mathbb{C}}
-\def\Rational{\mathbb{Q}}
+\def\Real{ℝ}
+\def\Proj{ℙ}
+\def\Hyper{ℍ}
+\def\Integer{ℤ}
+\def\Natural{ℕ}
+\def\Complex{ℂ}
+\def\Rational{ℚ}
 
 \let\N\Natural
 \let\Q\Rational
